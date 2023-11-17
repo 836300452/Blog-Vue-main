@@ -30,7 +30,7 @@
       <el-card class="box-card">
         <div slot="header" class="clearfix">
           <span
-            ><img class="avatar" src="../assets/img/1000.jpg" alt=""
+            ><img class="avatar" src="../assets/img/touxiang.jpg" alt=""
           /></span>
           <span>{{ m.name }}</span>
           <p class="time">{{ m.time }}</p>

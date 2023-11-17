@@ -4,7 +4,7 @@
     <el-table :data="message">
       <el-table-column prop="name" label="名称" width="300"> </el-table-column>
       <el-table-column prop="email" label="邮箱" width="300"> </el-table-column>
-      <el-table-column prop="text" label="内容" width="500"> </el-table-column>
+      <el-table-column prop="text" label="内容" > </el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template slot-scope="scope">
           <el-button @click="remove(scope.row._id)" type="text" size="big"

@@ -14,7 +14,8 @@ Vue.prototype.dayjs = dayjs
 Vue.config.productionTip = false
 
 Vue.prototype.$http = axios.create({
-  baseURL: 'http://localhost:3001/api'
+  baseURL: 'http://8.138.57.0:3001/api'
+  // baseURL: 'http://127.0.0.1:3001/api'
 })
 
 new Vue({

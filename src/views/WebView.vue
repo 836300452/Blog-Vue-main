@@ -141,6 +141,10 @@ export default {
 </script>
 
 <style scoped>
+.body-text {
+  padding: 0;
+  margin-bottom: 30px;
+}
 .title {
   background-image: url("../assets/img/bacc3.jpeg");
   background-size: cover;
@@ -181,7 +185,7 @@ export default {
   -webkit-box-orient: vertical;
 }
 .posts:hover {
-  transform: scaleX(1.015) scaleY(1.015);
+  transform:scaleY(1.1);
   box-shadow: 2px 2px 10px rgb(175, 175, 175);
 }
 .posts-title {
@@ -202,7 +206,7 @@ export default {
   font-weight: 400;
   font-size: 15.2px;
   line-height: 22px;
-  margin: 5px 200px;
+  margin: 5px 200px 30px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

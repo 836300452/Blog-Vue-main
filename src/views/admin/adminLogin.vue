@@ -2,7 +2,7 @@
   <!-- 登录页 -->
   <div class="container">
     <div class="login-wrapper">
-      <img src="@/assets/img/1000.jpg" alt="" class="login-avatar" />
+      <img src="@/assets/img/touxiang.jpg" alt="" class="login-avatar" />
       <div class="form-wrapper">
         <input
           type="text"
@@ -17,6 +17,7 @@
           placeholder="password"
           class="input-item"
           v-model="user.password"
+          @keyup.enter="sendLogin"
         />
         <!-- <div class="btn">Login</div> -->
         <button class="btn" @click="sendLogin">Login</button>

@@ -22,20 +22,6 @@
             /></a>
           </el-tooltip>
         </li>
-        <!-- <li>
-          <el-tooltip
-            effect="light"
-            class="item"
-            content="我的知乎ヾ(≧▽≦*)o"
-            placement="bottom"
-          >
-            <a
-              href="https://www.zhihu.com/people/liu-qing-shu-65"
-              target="_blank"
-              ><img src="../assets/img/zhihu.png" alt=""
-            /></a>
-          </el-tooltip>
-        </li> -->
         <li>
           <el-tooltip
             effect="light"
@@ -44,7 +30,7 @@
             placement="bottom"
           >
             <a href="https://space.bilibili.com/480252913?spm_id_from=333.999.0.0" target="_blank"
-              ><img src="../assets/img/Bili.png" alt=""
+              ><img style="margin-left: 20px;margin-right: 20px;" src="../assets/img/Bili.png" alt=""
             /></a>
           </el-tooltip>
         </li>
@@ -141,7 +127,6 @@
                     :scrollStyle="prop.scrollStyle"
                   />
                 </p>
-                <br />
                 <p class="el-icon-time posts-time">{{ a.time }}</p>
                 <p
                   class="posts-article el-icon-s-promotion"
@@ -260,9 +245,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .welShow {
-  background-image: linear-gradient(to right, #dd3e54, #0083b0);
+  background: linear-gradient(to right, #dd3e54, #0083b0);
   width: 100%;
   height: 100vh;
 }
@@ -276,6 +261,10 @@ export default {
   border-radius: 180px;
   border: 4px solid rgb(104, 195, 228);
 }
+.avatar:hover {
+  width: 250px;
+  height: 250px;
+}
 .text {
   padding-top: 10px;
   text-align: center;
@@ -288,26 +277,29 @@ export default {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: to right, linear-gradient(to right, #dd3e54, #0083b0);
 }
-.text > a:hover {
+/* .text > a:hover {
   font-size: 50px;
   color: #85d6f1;
-}
+} */
 .link-icon {
   position: absolute;
   left: 50%;
   top: 78%;
   transform: translate(-50%);
-}
-.link-icon > li {
-  float: left;
-  list-style-type: none;
-}
-.link-icon > li > a > img {
-  padding-top: 10px;
-  margin-left: 30px;
-  margin-top: 20px;
-  width: 50px;
-  height: 50px;
+  li{
+    float: left;
+    list-style-type: none;
+    a{
+      img{
+        padding-top: 10px;
+        // margin-left: 30px;
+        margin-top: 20px;
+        width: 50px;
+        height: 50px;
+
+      }
+    }
+  }
 }
 
 .el-icon-arrow-down {
@@ -405,6 +397,7 @@ header {
 }
 .body-text {
   padding: 0;
+  margin-bottom: 30px;
 }
 .title {
   background-image: url("../assets/img/bacc3.jpeg");
@@ -421,9 +414,6 @@ header {
   font-size: 50px;
 }
 .posts {
-  font-family: Optima-Regular, Optima, -apple-system, system-ui, Segoe UI,
-    Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont,
-    Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial;
   position: relative;
   padding: 28px;
   border-radius: 5px;
@@ -446,7 +436,7 @@ header {
   -webkit-box-orient: vertical;
 }
 .posts:hover {
-  transform: scaleX(1.015) scaleY(1.015);
+  transform:scaleY(1.1);
   box-shadow: 2px 2px 10px rgb(175, 175, 175);
 }
 .posts-title {
@@ -467,7 +457,7 @@ header {
   font-weight: 400;
   font-size: 15.2px;
   line-height: 22px;
-  margin: 5px 200px;
+  margin: 5px 200px 30px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

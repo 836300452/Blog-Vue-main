@@ -57,6 +57,6 @@ export default {
 }
 #header {
   position: fixed;
-  z-index: 999;
+  z-index: 99999;
 }
 </style>
