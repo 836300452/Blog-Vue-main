@@ -10,7 +10,7 @@
     <div class="info-text">
       <el-card class="box-card">
         <div slot="header" class="clearfix">
-          🐻自离，找工作中🐻
+          🐻码农🐻
         </div>
         <div class="text">
           <div class="web">
@@ -24,6 +24,7 @@
               但是学这玩意儿还是挺有意思的，所见即所得，做什么东西就出现什么页面，见效快
             </p>
           </div>
+          <div>目前在从事node全栈及开发人工智能</div>
           <hr />
           <div class="blog">
             <p style="float: left">博客介绍：</p>
@@ -33,10 +34,7 @@
             </p>
             <br />
             <p>
-              整个博客前后端开发加起来用了一个多星期(本来能更快的，工作了之后就忙着工作的事了，前后跨度用了一年。。。哈哈哈哈哈)。前端采用了<b
-                >Vue2 + VueX + VueRouter + ElementUi</b
-              >,后端使用的是<b>Express + Mongoose</b
-              >📃。
+              整个博客前后端开发加起来用了一个多星期(本来能更快的，工作了之后就忙着工作的事了，前后跨度用了一年。。。哈哈哈哈哈)。前端采用了<b>Vue2 + VueX + VueRouter + ElementUi</b>,后端使用的是<b>Express + Mongoose</b>📃。
             </p>
             <br />
             <!-- <p>
@@ -47,58 +45,7 @@
           <div class="info">
             <p style="float: left">联系我：</p>
             <br />
-            <div class="link-icon">
-        <li>
-          <el-tooltip
-            effect="light"
-            class="item"
-            content="我的Githubヾ(≧▽≦*)o"
-            placement="bottom"
-          >
-            <a href="https://github.com/836300452" target="_blank"
-              ><img src="../assets/img/github.png" alt=""
-            /></a>
-          </el-tooltip>
-        </li>
-        <!-- <li>
-          <el-tooltip
-            effect="light"
-            class="item"
-            content="我的知乎ヾ(≧▽≦*)o"
-            placement="bottom"
-          >
-            <a
-              href="https://www.zhihu.com/people/liu-qing-shu-65"
-              target="_blank"
-              ><img src="../assets/img/zhihu.png" alt=""
-            /></a>
-          </el-tooltip>
-        </li> -->
-        <li>
-          <el-tooltip
-            effect="light"
-            class="item"
-            content="我的B站ヾ(≧▽≦*)o"
-            placement="bottom"
-          >
-            <a href="https://space.bilibili.com/480252913?spm_id_from=333.999.0.0" target="_blank"
-              ><img src="../assets/img/Bili.png" alt=""
-            /></a>
-          </el-tooltip>
-        </li>
-        <li>
-          <el-tooltip
-            effect="light"
-            class="item"
-            content="我的微博ヾ(≧▽≦*)o"
-            placement="bottom"
-          >
-            <a href="https://weibo.com/u/5384729992" target="_blank"
-              ><img src="../assets/img/weibo.png" alt=""
-            /></a>
-          </el-tooltip>
-        </li>
-      </div>
+            <LinkIcon></LinkIcon>
           </div>
         </div>
       </el-card>
@@ -107,10 +54,12 @@
 </template>
 
 <script>
+import LinkIcon from '@/components/LinkIcon.vue'
 export default {
   created () {
     window.scrollTo(0, 0)
-  }
+  },
+  components: { LinkIcon }
 }
 </script>
 
@@ -120,7 +69,7 @@ export default {
   height: 100%;
 }
 .info-avatar {
-  background-image: url("../assets/img/Nabaci3.jpeg");
+  background-image: url('../assets/img/Nabaci3.jpeg');
   overflow: hidden;
   background-size: cover;
 }
@@ -155,7 +104,7 @@ export default {
 }
 .text {
   font-size: 18px;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
 .web {
   margin-bottom: 10px;
@@ -166,22 +115,5 @@ export default {
 }
 .info {
   margin-top: 30px;
-}
-.link-icon {
-  position: absolute;
-  left: 50%;
-  top: 78%;
-  transform: translate(-50%);
-}
-.link-icon > li {
-  float: left;
-  list-style-type: none;
-}
-.link-icon > li > a > img {
-  padding-top: 10px;
-  margin-left: 30px;
-  margin-top: 20px;
-  width: 50px;
-  height: 50px;
 }
 </style>

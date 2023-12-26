@@ -1,52 +1,13 @@
 <template>
   <!-- 主页面 -->
   <div>
+
     <div class="welShow">
-      <img
-        class="avatar"
-        src="../assets/img/touxiang.jpg"
-      />
+      <img class="avatar" src="../assets/img/touxiang.jpg" />
       <br />
       <p class="text"><a href="">Ahlose</a></p>
       <br />
-      <div class="link-icon">
-        <li>
-          <el-tooltip
-            effect="light"
-            class="item"
-            content="我的Githubヾ(≧▽≦*)o"
-            placement="bottom"
-          >
-            <a href="https://github.com/836300452" target="_blank"
-              ><img src="../assets/img/github.png" alt=""
-            /></a>
-          </el-tooltip>
-        </li>
-        <li>
-          <el-tooltip
-            effect="light"
-            class="item"
-            content="我的B站ヾ(≧▽≦*)o"
-            placement="bottom"
-          >
-            <a href="https://space.bilibili.com/480252913?spm_id_from=333.999.0.0" target="_blank"
-              ><img style="margin-left: 20px;margin-right: 20px;" src="../assets/img/Bili.png" alt=""
-            /></a>
-          </el-tooltip>
-        </li>
-        <li>
-          <el-tooltip
-            effect="light"
-            class="item"
-            content="我的微博ヾ(≧▽≦*)o"
-            placement="bottom"
-          >
-            <a href="https://weibo.com/u/5384729992" target="_blank"
-              ><img src="../assets/img/weibo.png" alt=""
-            /></a>
-          </el-tooltip>
-        </li>
-      </div>
+      <LinkIcon></LinkIcon>
       <a href="#nva" class="el-icon-arrow-down"></a>
     </div>
     <div class="pageShow">
@@ -56,33 +17,14 @@
             <router-link to="/admin-login">
               <img class="logo" src="../assets/img/1000.jpg" alt="" />
             </router-link>
-            <el-menu-item class="el-icon-s-home" index="/index"
-              >首页</el-menu-item
-            >
-            <el-menu-item class="el-icon-reading" index="/webposts"
-              >前端</el-menu-item
-            >
-            <el-menu-item class="el-icon-notebook-2" index="/noteposts"
-              >随笔</el-menu-item
-            >
-            <el-menu-item class="el-icon-chat-dot-round" index="/message"
-              >留言板</el-menu-item
-            >
+            <el-menu-item class="el-icon-s-home" index="/index">首页</el-menu-item>
+            <el-menu-item class="el-icon-reading" index="/webposts">前端</el-menu-item>
+            <el-menu-item class="el-icon-notebook-2" index="/noteposts">随笔</el-menu-item>
+            <el-menu-item class="el-icon-chat-dot-round" index="/message">留言板</el-menu-item>
             <el-menu-item class="el-icon-info" index="/info">关于</el-menu-item>
-            <el-input
-              class="search"
-              placeholder="请输入内容"
-              prefix-icon="el-icon-search"
-              v-model="search"
-            >
+            <el-input class="search" placeholder="请输入内容" prefix-icon="el-icon-search" v-model="search">
             </el-input>
-            <el-button
-              class="searchBtn"
-              type="primary"
-              size="small"
-              @click="Search"
-              >搜索</el-button
-            >
+            <el-button class="searchBtn" type="primary" size="small" @click="Search">搜索</el-button>
           </el-menu>
         </el-header>
         <el-container>
@@ -94,61 +36,34 @@
               <div class="SearchText" v-show="isSearch">
                 <b>未找到搜索文章</b>
                 <br />
-                <el-button type="primary" size="default" @click="returnIndex"
-                  >返回文章列表</el-button
-                >
+                <el-button type="primary" size="default" @click="returnIndex">返回文章列表</el-button>
               </div>
               <div class="el-icon-loading loding" v-show="isShow"></div>
-              <el-table
-                v-show="isShow"
-                v-loading="isShow"
-                style="width: 100%"
-              ></el-table>
-              <div
-                v-for="a in article.slice(
+              <el-table v-show="isShow" v-loading="isShow" style="width: 100%"></el-table>
+              <div v-for="a in article.slice(
                   (currentPage1 - 1) * pageSize,
                   currentPage1 * pageSize
-                )"
-                :key="a.id"
-                class="posts"
-              >
+                )" :key="a.id" class="posts">
                 <p class="posts-title" @click="articleVist(a._id)">
                   {{ a.title }}
                 </p>
                 <br />
                 <p class="posts-body">
-                  <mavon-editor
-                    class="md"
-                    :value="a.body"
-                    :subfield="prop.subfield"
-                    :defaultOpen="prop.defaultOpen"
-                    :toolbarsFlag="prop.toolbarsFlag"
-                    :editable="prop.editable"
-                    :scrollStyle="prop.scrollStyle"
-                  />
+                  <mavon-editor class="md" :value="a.body" :subfield="prop.subfield" :defaultOpen="prop.defaultOpen" :toolbarsFlag="prop.toolbarsFlag" :editable="prop.editable" :scrollStyle="prop.scrollStyle" />
                 </p>
                 <p class="el-icon-time posts-time">{{ a.time }}</p>
-                <p
-                  class="posts-article el-icon-s-promotion"
-                  @click="articleVist(a._id)"
-                >
+                <p class="posts-article el-icon-s-promotion" @click="articleVist(a._id)">
                   阅读全文
                 </p>
               </div>
               <div class="block">
-                <el-pagination
-                  background
-                  layout="prev, pager, next, jumper "
-                  :total="total"
-                  :current-Page="currentPage1"
-                  :page-size="pageSize"
-                  @size-change="handleSizeChange"
-                  @current-change="handleCurrentChange"
-                >
+                <el-pagination background layout="prev, pager, next, jumper " :total="total" :current-Page="currentPage1" :page-size="pageSize" @size-change="handleSizeChange" @current-change="handleCurrentChange">
                 </el-pagination>
               </div>
             </div>
-            <div class="footer"><FooterVue></FooterVue></div>
+            <div class="footer">
+              <FooterVue></FooterVue>
+            </div>
           </div>
         </el-container>
       </el-container>
@@ -158,8 +73,9 @@
 
 <script>
 import FooterVue from '../components/FooterVue'
+import LinkIcon from '@/components/LinkIcon.vue'
 export default {
-  components: { FooterVue },
+  components: { FooterVue, LinkIcon },
   data () {
     return {
       article: [],
@@ -168,7 +84,8 @@ export default {
       isSearch: false,
       currentPage1: 1,
       total: 1,
-      pageSize: 5
+      pageSize: 5,
+      fileList: []
     }
   },
   computed: {
@@ -274,7 +191,7 @@ export default {
 .text > a {
   font-size: 7vh;
   text-decoration: none;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: to right, linear-gradient(to right, #dd3e54, #0083b0);
 }
 /* .text > a:hover {
@@ -286,17 +203,16 @@ export default {
   left: 50%;
   top: 78%;
   transform: translate(-50%);
-  li{
+  li {
     float: left;
     list-style-type: none;
-    a{
-      img{
+    a {
+      img {
         padding-top: 10px;
         // margin-left: 30px;
         margin-top: 20px;
         width: 50px;
         height: 50px;
-
       }
     }
   }
@@ -400,7 +316,7 @@ header {
   margin-bottom: 30px;
 }
 .title {
-  background-image: url("../assets/img/bacc3.jpeg");
+  background-image: url('../assets/img/bacc3.jpeg');
   background-size: cover;
   font-size: 40px;
   padding-top: 100px;
@@ -436,7 +352,7 @@ header {
   -webkit-box-orient: vertical;
 }
 .posts:hover {
-  transform:scaleY(1.1);
+  transform: scaleY(1.1);
   box-shadow: 2px 2px 10px rgb(175, 175, 175);
 }
 .posts-title {
